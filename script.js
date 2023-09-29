@@ -69,4 +69,59 @@ window.addEventListener('DOMContentLoaded', ()=>{
         }
     }
     setClock('.timer', timeEnd);
+
+    // Modal Window
+    const modal = document.querySelector('.modal');
+    const openModal = document.querySelectorAll('[data-modal]');
+    const closeModal = document.querySelector('[data-close]');
+
+    openModal.forEach(btn => {
+        btn.addEventListener('click', ()=>{
+            modal.classList.add('show');
+            modal.classList.remove('hide');
+            document.body.style.overflow = 'hidden';
+        });
+    });
+
+    function hideModal(){
+        modal.classList.add('hide');
+        modal.classList.remove('show');
+        document.body.style.overflow = '';
+    }
+
+    closeModal.addEventListener('click', hideModal);
+
+    modal.addEventListener('click', (e)=>{
+            if(e.target === modal){
+                hideModal();
+            }
+    });
+    
+    document.addEventListener('keydown', (e)=>{
+        if(e.code === 'Escape'){
+            hideModal();
+        }
+    });
+
+    // closeModal.addEventListener('click', ()=>{
+    //     modal.classList.add('hide');
+    //     modal.classList.remove('show');
+    //     document.body.style.overflow = '';
+    // });
+
+    // modal.addEventListener('click', (e)=>{
+    //     if(e.target === modal){
+    //         modal.classList.add('hide');
+    //         modal.classList.remove('show');
+    //         document.body.style.overflow = '';
+    //     }
+    // });
+
+    // document.addEventListener('keydown', (e)=>{
+    //     if(e.code === 'Escape'){
+    //         modal.classList.add('hide');
+    //         modal.classList.remove('show');
+    //         document.body.style.overflow = '';
+    //     }
+    // });
 });
