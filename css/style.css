@@ -6,3 +6,9 @@
 .hide {
     display: none;
 }
+.offer__slide_active {
+    display: block;
+}
+.offer__slide_hidden {
+    display: none;
+}
